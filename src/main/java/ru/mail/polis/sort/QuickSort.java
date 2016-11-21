@@ -27,7 +27,7 @@ public class QuickSort {
         return j;
     }
 
-    private static int[] quickSort(int arr[], int left, int right) {
+    public static int[] quickSort(int arr[], int left, int right) {
         if(left >= right) return arr;
         int idx = partition(arr, left, right);
         quickSort(arr, left, idx);

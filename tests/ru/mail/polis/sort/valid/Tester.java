@@ -98,5 +98,11 @@ public class Tester {
 
     @Test
     public void test07_checkQuickSort() throws IOException {
+        Assert.assertTrue(isSorted(QuickSort.quickSort(array, 0, array.length - 1)));
+    }
+
+    @Test
+    public void test08_checkQuick3Way() throws IOException {
+        Assert.assertTrue(isSorted(Quick3Way.sort(array)));
     }
 }

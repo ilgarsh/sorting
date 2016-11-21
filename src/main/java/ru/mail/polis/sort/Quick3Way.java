@@ -6,11 +6,11 @@ import static ru.mail.polis.sort.Helper.swap;
  * Created by Ilgar on 21.11.2016.
  */
 public class Quick3Way {
-    public int[] sort (int[] input){
+    public static int[] sort(int[] input){
         return sort(input, 0, input.length-1);
     }
 
-    public int[] sort(int[] input, int lowIndex, int highIndex) {
+    public static int[] sort(int[] input, int lowIndex, int highIndex) {
 
 
         if (highIndex<=lowIndex) return input;
