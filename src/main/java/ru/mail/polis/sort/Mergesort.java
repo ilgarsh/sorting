@@ -4,19 +4,20 @@ package ru.mail.polis.sort;
  * Created by Ilgar on 20.11.2016.
  */
 public class Mergesort {
-    private int[] numbers;
-    private int[] helper;
+    static private int[] numbers;
+    static private int[] helper;
 
-    private int number;
+    static private int number;
 
-    public void sort(int[] values) {
-        this.numbers = values;
+    public static int[] sort(int[] values) {
+        numbers = values;
         number = values.length;
-        this.helper = new int[number];
+        helper = new int[number];
         mergesort(0, number - 1);
+        return values;
     }
 
-    private void mergesort(int low, int high) {
+    private static void mergesort(int low, int high) {
         // check if low is smaller then high, if not then the array is sorted
         if (low < high) {
             // Get the index of the element which is in the middle
@@ -30,7 +31,7 @@ public class Mergesort {
         }
     }
 
-    private void merge(int low, int middle, int high) {
+    private static void merge(int low, int middle, int high) {
 
         // Copy both parts into the helper array
         for (int i = low; i <= high; i++) {
@@ -58,6 +59,5 @@ public class Mergesort {
             k++;
             i++;
         }
-
     }
 }

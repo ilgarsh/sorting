@@ -3,11 +3,10 @@ package ru.mail.polis.sort;
 /**
  * Created by Ilgar on 20.11.2016.
  */
-import java.util.*;
 
 public class ShellSort {
 
-    public static void sort(int[] array) {
+    public static int[] sort(int[] array) {
         int inner, outer;
         int temp;
 
@@ -28,5 +27,7 @@ public class ShellSort {
             }
             h = (h - 1) / 3;
         }
+
+        return array;
     }
 }

@@ -27,10 +27,11 @@ public class QuickSort {
         return j;
     }
 
-    public static void quickSort(int arr[], int left, int right) {
-        if(left >= right) return;
+    private static int[] quickSort(int arr[], int left, int right) {
+        if(left >= right) return arr;
         int idx = partition(arr, left, right);
         quickSort(arr, left, idx);
         quickSort(arr, idx+1, right);
+        return arr;
     }
 }

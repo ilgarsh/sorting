@@ -5,7 +5,7 @@ package ru.mail.polis.sort;
  * Created by Ilgar on 20.11.2016.
  */
 public class InsertionSort {
-    public static void insertionSort(int array[]) {
+    public static int[] insertionSort(int array[]) {
         int n = array.length;
         for (int j = 1; j < n; j++) {
             int key = array[j];
@@ -16,5 +16,6 @@ public class InsertionSort {
             }
             array[i+1] = key;
         }
+        return array;
     }
 }

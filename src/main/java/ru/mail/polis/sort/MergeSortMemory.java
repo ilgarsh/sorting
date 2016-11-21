@@ -3,14 +3,11 @@ package ru.mail.polis.sort;
 /**
  * Created by Ilgar on 21.11.2016.
  */
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.Random;
 
 public class MergeSortMemory {
 
     // слияние двух групп элементов одинакового размера
-    void mergegroup(int a[], int n, int st1, int st2, int st3) {
+    private static void mergegroup(int a[], int n, int st1, int st2, int st3) {
         swapgroup(a, n, st1, st3);
         int take1 = 0;
         int take2 = 0;
@@ -31,7 +28,7 @@ public class MergeSortMemory {
 
 
     // сортировка выбором
-    void slowsort(int a[], int st, int en) {
+    private static void slowsort(int a[], int st, int en) {
         for (int i = st; i < en; i++)
             for (int j = i + 1; j < en; j++) {
                 if (a[i] > a[j]) {
@@ -44,7 +41,7 @@ public class MergeSortMemory {
 
 
     // обмен местами двух групп элементов одинакового размера
-    void swapgroup(int a[], int n, int st1, int st2) {
+    private static void swapgroup(int a[], int n, int st1, int st2) {
         for (int i = 0; i < n; i++) {
             int k = a[st1 + i];
             a[st1 + i] = a[st2 + i];
@@ -54,7 +51,7 @@ public class MergeSortMemory {
 
 
     //слияние
-    void merge(int[] a, int n) {
+    private static void merge(int[] a, int n) {
         if (n <= 16) {
             slowsort(a, 0, n);
             return;
@@ -105,7 +102,7 @@ public class MergeSortMemory {
     }
 
     // сортировка
-    void sort(int[] a) {
+    public static int[] sort(int[] a) {
         int n = a.length;
         for (int stp2 = 1; stp2 <= n; stp2 *= 2)
             for (int i = 0; i < n; i += stp2) {
@@ -116,33 +113,6 @@ public class MergeSortMemory {
             }
         if (n > 16)
             merge(a, n);
-
-    }
-
-
-    void testsort() throws IOException {
-        int n = 100000;
-        int[] a = new int[n];
-        Random st = new Random();
-        for (int i = 0; i < n; i++)
-            a[i] = st.nextInt();
-        int[] b = a.clone();
-        Arrays.sort(b);
-        sort(a);
-        for (int i = 0; i < n; i++)
-            if (a[i] != b[i])
-                throw new AssertionError();
-    };
-
-
-    void run() throws IOException {
-        for (int i = 0; i < 10; i++) {
-            testsort();
-        }
-    }
-
-
-    public static void main(String[] args) throws IOException {
-        new MergeSortMemory().run();
+        return a;
     }
 }
