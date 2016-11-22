@@ -6,6 +6,7 @@ import java.util.Collection;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
@@ -105,4 +106,5 @@ public class Tester {
     public void test08_checkQuick3Way() throws IOException {
         Assert.assertTrue(isSorted(Quick3Way.sort(array)));
     }
+
 }

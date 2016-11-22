@@ -13,6 +13,13 @@ public class Helper {
         a[j] = x;
     }
 
+    public static void swap(String[] a, int i, int j) {
+        String x = a[i];
+        a[i] = a[j];
+        a[j] = x;
+    }
+
+
     public static int[] gen(int n) {
         int[] a = new int[n];
         for (int i = 0; i < a.length; i++) {
