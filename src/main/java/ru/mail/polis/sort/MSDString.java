@@ -48,9 +48,4 @@ public class MSDString {
         return v.substring(d).compareTo(w.substring(d)) < 0;
     }
 
-    public static void main(String[] args) {
-        String[] strs = {"cda", "bbb", "aaa"};
-        sort(strs);
-        System.out.println();
-    }
 }
