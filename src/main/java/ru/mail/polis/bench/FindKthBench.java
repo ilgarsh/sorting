@@ -6,6 +6,7 @@ import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 import ru.mail.polis.sort.FindK;
+import ru.mail.polis.sort.FindKFaster;
 import ru.mail.polis.sort.Helper;
 
 import java.util.Arrays;
@@ -33,7 +34,7 @@ public class FindKthBench {
         data = new int[10][1000];
         for (int i = 0; i < 10; i++) {
             //define arrays here
-            data[i] = Helper.genInt(1000);
+            data[i] = Helper.genInt(100000);
         }
     }
 
@@ -41,12 +42,17 @@ public class FindKthBench {
     public void setUpInvocation() {
         curr = Arrays.copyOf(data[index], data[index].length);
         index = (index + 1) % 10;
-        k=r.nextInt(1000);
+        k=r.nextInt(100000);
     }
 
     @Benchmark
     public void measureFindK() {
         FindK.findK(curr, k);
+    }
+
+    @Benchmark
+    public void measureFindKFaster() {
+        FindKFaster.findKFaster(curr, k);
     }
 
     public static void main(String[] args) throws RunnerException {

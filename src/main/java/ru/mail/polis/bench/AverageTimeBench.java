@@ -43,7 +43,7 @@ public class AverageTimeBench {
         data = new int[10][100];
         for (int i = 0; i < 10; i++) {
             //define arrays here
-            data[i] = Helper.genInt(10000);
+            data[i] = Helper.genInt(10);
         }
     }
 

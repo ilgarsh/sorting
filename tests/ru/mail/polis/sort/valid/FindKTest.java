@@ -9,6 +9,7 @@ import org.junit.runner.Description;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import ru.mail.polis.sort.FindK;
+import ru.mail.polis.sort.FindKFaster;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -32,7 +33,7 @@ public class FindKTest {
 
     private int expected(int[] a, int k) {
         Arrays.sort(a);
-        return a[k];
+        return a[k-1];
     }
 
     @Parameterized.Parameter
@@ -61,5 +62,13 @@ public class FindKTest {
         int[] tempArray = Arrays.copyOf(array, array.length);
         int k = r.nextInt(array.length);
         Assert.assertEquals(FindK.findK(tempArray, k), expected(array, k));
+    }
+
+    @Test
+    public void test_checkFindKFaster() throws IOException {
+        Random r = new Random();
+        int[] tempArray = Arrays.copyOf(array, array.length);
+        int k = r.nextInt(array.length)+1;
+        Assert.assertEquals(FindKFaster.findKFaster(tempArray, k), expected(array, k));
     }
 }
