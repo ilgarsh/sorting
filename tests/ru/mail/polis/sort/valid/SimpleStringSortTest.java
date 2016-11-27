@@ -58,5 +58,4 @@ public class SimpleStringSortTest {
         String[] array = genStr(1000);
         Assert.assertTrue(isSorted(array));
     }
-
 }

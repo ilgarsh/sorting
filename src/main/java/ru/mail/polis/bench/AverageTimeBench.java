@@ -34,16 +34,16 @@ import ru.mail.polis.sort.*;
 @Fork(1)
 public class AverageTimeBench {
 
-    int[][] data;
-    int[] curr;
-    int index;
+    private int[][] data;
+    private int[] curr;
+    private int index;
 
     @Setup(value = Level.Trial)
     public void setUpTrial() {
         data = new int[10][100];
         for (int i = 0; i < 10; i++) {
             //define arrays here
-            data[i] = Helper.genInt(10);
+            data[i] = Helper.genInt(100000);
         }
     }
 
@@ -91,6 +91,16 @@ public class AverageTimeBench {
     @Benchmark
     public void measureShellSort() {
         ShellSort.sort(curr);
+    }
+
+    @Benchmark
+    public void measureMSDSortBin() {
+        MSDSortBin.sort(curr);
+    }
+
+    @Benchmark
+    public void measureQuickSortBin() {
+        QuickSortBin.sort(curr);
     }
 
     public static void main(String[] args) throws RunnerException {

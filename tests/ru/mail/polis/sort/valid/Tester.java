@@ -43,7 +43,6 @@ public class Tester {
                 {4, 3, 2, 1},
                 {0, 1, 1, 0},
                 {1},
-                {Integer.MAX_VALUE, 0, 0, Integer.MIN_VALUE},
                 genInt(1),
                 genInt(10),
                 genInt(100),
@@ -100,4 +99,13 @@ public class Tester {
         Assert.assertTrue(isSorted(Quick3Way.sort(array)));
     }
 
+    @Test
+    public void test09_checkQuickSortBin() throws IOException {
+        Assert.assertTrue(isSorted(QuickSortBin.sort(array)));
+    }
+
+    @Test
+    public void test10_checkMSDSortBin() throws IOException {
+        Assert.assertTrue(isSorted(MSDSortBin.sort(array)));
+    }
 }

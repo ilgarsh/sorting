@@ -43,4 +43,22 @@ public class Helper {
         }
         return a;
     }
+
+    public static long[] genLong(int n) {
+        Random r = new Random();
+        long[] a = new long[n];
+        for (int i = 0; i < a.length; i++) {
+            a[i] = i;
+        }
+        for (int i = 0; i < a.length; i++) {
+            a[i] = r.nextInt(a.length - i + 1);
+        }
+        return a;
+    }
+
+    public static void swap(long[] a, int i, int j) {
+        long x = a[i];
+        a[i] = a[j];
+        a[j] = x;
+    }
 }
